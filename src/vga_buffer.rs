@@ -84,16 +84,16 @@ impl Writer {
             }
         }
     }
+}
 
-    fn  print_hello_world() {
-        let mut writer = Writer {
-            column_position: 0,
-            color_code: ColorCode::new(Color::Yellow, Color::Black),
-            buffer: unsafe { &mut *(0xb80000 as *mut  Buffer) },
-        };
+pub fn print_hello_world() {
+    let mut writer = Writer {
+        column_position: 0,
+        color_code: ColorCode::new(Color::Yellow, Color::Black),
+        buffer: unsafe { &mut *(0xb80000 as *mut  Buffer) },
+    };
 
-        writer.write_byte(b'H');
-        writer.write_string("ello ");
-        writer.write_string("Wörld!")
-    }
+    writer.write_byte(b'H');
+    writer.write_string("ello ");
+    writer.write_string("Wörld!")
 }
