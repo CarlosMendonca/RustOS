@@ -1,4 +1,3 @@
-
 #[allow(dead_code)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(u8)]
@@ -76,7 +75,7 @@ impl Writer {
 
     fn new_line(&mut self) { /* TODO */ }
 
-    fn write_string(&mut self, s: &str) {
+    pub fn write_string(&mut self, s: &str) {
         for byte in s.bytes() {
             match byte {
                 0x20..=0x7e | b'\n' => self.write_byte(byte),
@@ -90,7 +89,7 @@ pub fn print_hello_world() {
     let mut writer = Writer {
         column_position: 0,
         color_code: ColorCode::new(Color::Yellow, Color::Black),
-        buffer: unsafe { &mut *(0xb80000 as *mut  Buffer) },
+        buffer: unsafe { &mut *(0xb8000 as *mut  Buffer) },
     };
 
     writer.write_byte(b'H');
