@@ -1,6 +1,6 @@
 
 #[allow(dead_code)]
-#[deprive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Color {
     Black = 0,
@@ -13,7 +13,7 @@ pub enum Color {
     LightGray = 7,
     DarkGray  = 8,
     LightBlue = 9,
-    LightGreen = 10
+    LightGreen = 10,
     LightCyan = 11,
     LightRed = 12,
     Pink = 13,
@@ -26,7 +26,7 @@ pub enum Color {
 struct ColorCode(u8);
 
 impl ColorCode {
-    fn new(foregroundd: Color, background: Color) -> ColorCode {
+    fn new(foreground: Color, background: Color) -> ColorCode {
         ColorCode((background as u8) << 4 | (foreground as u8))
     }
 }
