@@ -1,4 +1,4 @@
-use volatile:Volatile;
+use volatile::Volatile;
 
 #[allow(dead_code)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
